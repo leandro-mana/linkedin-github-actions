@@ -13,5 +13,3 @@ jobs:
       uses: leandro-mana/jakr@feature/add-actions-definitions
       env:
         API_TOKEN: ${{ secrets.API_TOKEN }}
-      with:
-        args: 'FIXED'
