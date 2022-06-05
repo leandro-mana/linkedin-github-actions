@@ -2,9 +2,12 @@ name: JAKR - keyword-releaser
 
 on: [push]
 
+env:
+  master: ${{ github.ref == 'refs/heads/main' }} || ${{ github.ref == 'refs/heads/master' }}
+
 jobs:
   is_master:
-    if: ${{ github.ref == 'refs/heads/main' }} || ${{ github.ref == 'refs/heads/master' }} 
+    if: ${{master}} 
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
