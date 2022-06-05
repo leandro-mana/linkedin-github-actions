@@ -11,6 +11,6 @@ jobs:
 
     - name: Create a Release based on Keyword
       if: ${{ github.ref == 'refs/heads/main' }}
-      uses: leandro-mana/jakr@feature/add-actions-definitions
+      uses: leandro-mana/jakr@main
       env:
         API_TOKEN: ${{ secrets.API_TOKEN }}
