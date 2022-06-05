@@ -2,18 +2,15 @@ name: JAKR - keyword-releaser
 
 on: [push]
 
-env:
-  MASTER: ${{ github.ref == 'refs/heads/main' }} || ${{ github.ref == 'refs/heads/master' }}
-
 jobs:
-  is_master:
-    if: ${{ env.MASTER }} 
+  build: 
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
 
     - name: Create a Release based on Keyword
+      if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
       uses: leandro-mana/jakr@feature/add-actions-definitions
       env:
         API_TOKEN: ${{ secrets.API_TOKEN }}
